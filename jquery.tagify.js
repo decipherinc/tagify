@@ -540,6 +540,15 @@
 						t.reset();
                     }
                 });
+            case 'getvalues':
+                var values = [];
+                this.each(function () {
+                    var t = $(this).data('tagify-instance');
+                    $.each(t._tagList, function (idx, tagObject) {
+                        values.push(tagObject.tag);
+			        });
+                });
+                return values;
             default:
 				//if we get this far the user has specified a method we
 				//don't support via our api.  throw an exception
