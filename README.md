@@ -1,4 +1,4 @@
-jQuery.tagify
+jQuery.tagify [![Build Status](https://travis-ci.org/decipherinc/tagify.png)](https://travis-ci.org/decipherinc/tagify)
 =============
 
 A simple UI control to turn any text input into a "tagified" UI control.  The value of the input will be split on the specified delimiter and create one tag for each item in the list.
