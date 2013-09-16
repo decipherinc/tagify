@@ -10,18 +10,23 @@ Installation
 
 Include the jquery.tagify.js and jquery.tagify.css after you've included jQuery on the page.
 
-    <script src='/path/to/jquery.tagify.js'></script>
-    <link href='/path/to/jquery.tagify.css' rel="stylesheet" />
+```html
+<script src='/path/to/jquery.tagify.js'></script>
+<link href='/path/to/jquery.tagify.css' rel="stylesheet" />
+```
 
 Usage
 =====
 
 Create a tagified UI control:
 
-    $('#my_text_input').tagify();
+```javascript
+$('#my_text_input').tagify();
+```
 
 Optionally you can pass to tagify an options object to control various aspects of tagify.  The available options are:
 
+```javascript
 	{
 		//space delimited string of classes to add to tags (allows for custom styling of your tags)
 		addClassToTag: '',
@@ -79,7 +84,7 @@ Optionally you can pass to tagify an options object to control various aspects o
 		maxTagLimitMsg: 'Max tag limit reached.',
 
 	};
-
+```
 Methods
 =======
 
