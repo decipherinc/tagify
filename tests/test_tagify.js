@@ -1,16 +1,4 @@
-
- // Dependencies
- //import /s/jquery183.all.js
- 
- // being tested
- //import /s/jquery.tagify.js
- 
- // unit test helpers
- //import /s/qunit/qunit.js
- //import /s/support/sinon-1.1.1.js
- //import /s/support/sinon-qunit-1.0.0.js
-
-/*global QUnit, URL, sinon*/
+/*global QUnit, URL, sinon, $*/
 
 (function () {
 
