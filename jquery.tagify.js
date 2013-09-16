@@ -33,6 +33,7 @@
 			showButton: false,
 			removeDupes: true,
 			showPreviewIcon: false,
+            toggle: false,
 			maxTagLimit: null,
 			maxTagLimitMsg: 'Max tag limit reached.',
 			previewTitle: 'Click to view the tag values as a string. Useful for copy / paste into other tagify inputs.',
@@ -76,6 +77,11 @@
 
 			this.inputValidation = regex;
 		}
+
+        //add the toggle class if enabled
+        if (this.opts.toggle) {
+            this.opts.addClassToTag.push('tagify-toggle');
+        }
 
 		//ensure the callbacks are functions
 		if (! $.isFunction(this.opts.addCb)) {
@@ -170,7 +176,8 @@
 
 			return {
 				tag: t,
-				invalid: invalid
+				invalid: invalid,
+                selected: false
 			};
 		});
 	};
@@ -441,6 +448,7 @@
 			var me = this;
 			var addCb = this.opts.addCb;
 			var removeCb = this.opts.removeCb;
+            var toggle = this.opts.toggle;
 			var $tagifyInput = this.$tagify.find('.tagify-input');
 
 			//listen for clicks on the preview icon (eye icon)
@@ -464,6 +472,32 @@
 				//remove the tag from the alert
 				$tag.remove();
 			});
+
+            if (toggle) {
+                //listen for clicks on the tag if toggleable
+                this.$tagify.on('click', '.tagify-tag', function (evt) {
+
+                    function toggle(selected, tag) {
+                        $.each(me._tagList, function (idx, tagObject) {
+                            if (tagObject.tag === tag) {
+                                tagObject.selected = selected;
+                            }
+                        });
+                    }
+
+                    var $tag = $(evt.target);
+                    var tag = $tag.text();
+                    if ($tag.hasClass('tagify-selected')) {
+                        //unselect the clicked tag
+                        $tag.removeClass('tagify-selected');
+                        toggle(false, tag); 
+                    } else {
+                        //select the clicked tag
+                        $tag.addClass('tagify-selected');
+                        toggle(true, tag); 
+                    }
+                });
+            }
 
 			//listen for blur events on the tagify input
 			this.$tagify.on('blur forceAdd', '.tagify-input', function (evt) {
@@ -540,6 +574,18 @@
 						t.reset();
                     }
                 });
+            case 'tags':
+                var tags = [];
+                this.each(function () {
+                    var t = $(this).data('tagify-instance');
+
+                    if (t) {
+                        $.each(t._tagList, function (idx, tag) {
+                            tags.push(tag);
+                        });
+                    }
+                });
+                return tags;
             default:
 				//if we get this far the user has specified a method we
 				//don't support via our api.  throw an exception

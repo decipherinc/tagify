@@ -105,6 +105,55 @@
 		QUnit.equal($input.val(), '', 'The original Tagify input should be reset');
 
 		inst.forceAdd.restore();
+
+        //test tags method when there are no tags
+        $input.val('');
+        $input.tagify(tagifyOpts);
+
+        var tags = $input.tagify('tags');
+
+        QUnit.equal(tags.length, 0, 'Tags should be empty');
+
+        //test tags method when there are tags
+        $input.val(val);
+        $input.tagify(tagifyOpts);
+
+        var tags = $input.tagify('tags');
+
+        var values = val.split(' ');
+        $.each(tags, function (idx, tagObject) {
+            QUnit.equal(tagObject.tag, values[idx], 'The tag should have the correct value');
+            QUnit.ok(!tagObject.invalid, 'The tag should be valid');
+            QUnit.ok(!tagObject.selected, 'The tag should not be selected');
+        });
+
+        //test toggling does not work when disabled
+        var $tag = $fixture.find('.tagify-tag').eq(0);
+
+        $tag.click();
+        var tag = $input.tagify('tags')[0];
+
+        QUnit.ok(!$tag.hasClass('tagify-selected'), 'The tag should not have the selected class');
+        QUnit.ok(!tag.selected, 'The tag should not be selected');
+
+        //test toggling a tag on 
+        $input.tagify($.extend(tagifyOpts, {toggle: true}));
+		var $tag = $fixture.find('.tagify-tag').eq(0);
+        
+        $tag.click();
+        var tag = $input.tagify('tags')[0];
+
+        QUnit.ok($tag.hasClass('tagify-selected'), 'The tag should have the selected class');
+        QUnit.ok(tag.selected, 'The tag should be selected');
+
+        //test toggling a tag off
+        var $tag = $fixture.find('.tagify-tag').eq(0);
+
+        $tag.click();
+        var tag = $input.tagify('tags')[0];
+
+        QUnit.ok(!$tag.hasClass('tagify-selected'), 'The tag should not have the selected class');
+        QUnit.ok(!tag.selected, 'The tag should not be selected');
 	});
 
 })();
