@@ -231,7 +231,7 @@
 		$tagifyInput.append($input);
 
 		if (this.opts.showButton) {
-			$enter = $('<button></button>').text(this.opts.buttonText);
+			$enter = $("<button type='button'></button>").text(this.opts.buttonText);
 			$tagifyInput.append($enter);
 		}
 
