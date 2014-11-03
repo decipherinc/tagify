@@ -1,0 +1,33 @@
+{
+  "name": "tagify",
+  "version": "0.0.2",
+  "title": "tagify",
+  "author": {
+    "name": "Greg Goforth",
+    "email": "ggoforth@decipherinc.com",
+    "url": "http://decipherinc.com"
+  },
+  "maintainers": [
+    {
+      "name": "Greg Goforth",
+      "email": "ggoforth@decipherinc.com",
+      "url": "http://decipherinc.com"
+    },
+    {
+      "name": "Christopher Hiller",
+      "email": "chiller@decipherinc.com",
+      "url": "http://decipherinc.com"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.0"
+  },
+  "description": "A simple UI control to turn any text input into a \"tagified\" UI control. The value of the input will be split on the specified delimiter and create one tag for each item in the list.",
+  "homepage": "http://decipherinc.github.io/tagify"
+}
