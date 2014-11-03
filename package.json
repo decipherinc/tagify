@@ -21,5 +21,17 @@
   },
   "main": "jquery.tagify.js",
   "license": "MIT",
-  "homepage": "http://decipherinc.github.io/tagify"
+  "homepage": "http://decipherinc.github.io/tagify",
+  "author": {
+    "name": "Greg Goforth",
+    "email": "ggoforth@decipherinc.com",
+    "url": "http://decipherinc.com"
+  },
+  "maintainers": [
+    "Greg Goforth <ggoforth@decipherinc.com>",
+    "Christopher Hiller <chiller@decipherinc.com>"
+  ],
+  "contributors": [
+    "sahilsk"
+  ]
 }
