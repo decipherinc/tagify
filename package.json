@@ -1,6 +1,6 @@
 {
-  "name": "tagify",
-  "version": "0.0.2",
+  "name": "jquery.tagify",
+  "version": "0.1.0",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-bower-install-simple": "^1.0.3",
@@ -33,5 +33,12 @@
   ],
   "contributors": [
     "sahilsk"
+  ],
+  "keywords": [
+    "jquery-plugin",
+    "tagify",
+    "jquery",
+    "tag",
+    "tags"
   ]
 }

@@ -17,10 +17,11 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "tests",
+    "tests/",
     "Gruntfile.js",
     "tagify.jpg",
-    ""
+    "CHANGELOG.md",
+    "package.json"
   ],
   "dependencies": {
     "jquery": ">= 1.7.0"
