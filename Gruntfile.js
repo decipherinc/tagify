@@ -58,14 +58,13 @@ module.exports = function (grunt) {
         },
         bump: {
             options: {
-                files: ['package.json', 'bower.json', 'tagify.jquery.json'],
+                files: ['package.json', 'bower.json'],
                 updateConfigs: ['pkg'],
                 commit: true,
                 commitMessage: 'Release v%VERSION%',
                 commitFiles: [
                     'package.json',
                     'bower.json',
-                    'tagify.jquery.json',
                     '<%= min %>',
                     '<%= min %>' + '.map'
                 ],
